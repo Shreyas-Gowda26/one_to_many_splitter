@@ -1,10 +1,11 @@
 """Tests for UI module."""
+from unittest import TestCase
 from unittest.mock import patch
 
 from . import ui
 
 
-class TestExpandAsBase:
+class TestExpandAsBase(TestCase):
     def test_simple(self) -> None:
         result = ui.expand_as_base(6, {(0, 1)})
         assert result == "1"
@@ -25,7 +26,7 @@ class TestExpandAsBase:
         result = ui.expand_as_base(6, {})
         assert result == "0"
 
-class TestGetInt:
+class TestGetInt(TestCase):
     def test_valid_input(self) -> None:
         with patch("builtins.input", return_value="5"):
             result = ui.get_int(lambda n: True)

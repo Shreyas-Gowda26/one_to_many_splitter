@@ -18,21 +18,8 @@
 
 ## Running tests
 
-1. Create and activate a virtual environment:
-
-    ```py
-    py -m venv "./venv"
-    "./venv/Scripts/activate"
-    ```
-
-1. Install all dependencies:
-
-    ```shell
-    pip install -r "./requirements-freeze.txt"
-    ```
-
 1. Run the test suite:
 
     ```shell
-    pytest --import-mode importlib
+    py -m unittest discover
     ```

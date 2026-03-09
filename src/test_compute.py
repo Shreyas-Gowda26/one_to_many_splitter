@@ -1,13 +1,14 @@
-import pytest
+from unittest import TestCase
 
 from . import compute
 
-def test_as_exponent() -> None:
-    assert compute.as_exponent('x-1234567908') == 'x⁻¹²³⁴⁵⁶⁷⁹⁰⁸'
+class TestAsExponent(TestCase):
+    def test_general(self) -> None:
+        assert compute.as_exponent('x-1234567908') == 'x⁻¹²³⁴⁵⁶⁷⁹⁰⁸'
 
-class TestAsBase:
+class TestAsBase(TestCase):
     def test_invalid_base(self) -> None:
-        with pytest.raises(ValueError):
+        with self.assertRaises(ValueError):
             compute.as_base(1, 5)
 
     def test_empty(self) -> None:
