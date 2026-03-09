@@ -4,7 +4,7 @@ from . import compute
 
 def expand_as_base(b: int, exp_scalars: Iterable[tuple[int, int]]) -> str:
     '''
-    A UI wrapper for `as_base`
+    A UI wrapper for `compute.as_base`
 
     :param b: The base
     :type b: int
@@ -40,7 +40,10 @@ def get_int(
     :rtype: Optional[int]
     '''
     while True:
-        tmp_num = input(msg).lower().strip()
+        try:
+            tmp_num = input(msg).strip()
+        except EOFError:
+            return None
         if tmp_num == exit_phrase:
             return None
         try:
